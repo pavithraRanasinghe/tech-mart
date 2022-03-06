@@ -1,0 +1,8 @@
+export enum WorkOrderStatus {
+    NEW = 'NEW',
+    IN_PROGRESS = 'IN_PROGRESS',
+    COMPLETED = 'COMPLETED',
+    ACCEPTED = 'ACCEPTED',
+    DISPATCHED = 'DISPATCHED',
+    REJECTED = 'REJECTED'
+}

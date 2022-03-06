@@ -1,0 +1,59 @@
+<app-spinner #spinner></app-spinner>
+
+
+<div
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="1rem"
+  fxLayoutAlign="center"
+  class="login-container"
+>
+
+  <div fxFlex="50" class="login-image">
+    <img src="https://images.unsplash.com/photo-1587582423116-ec07293f0395?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+  </div>
+
+  <div fxFlex="50" class="login-form full-width"
+       fxLayout="column"
+       fxLayout.xs="column"
+       fxLayoutAlign="center">
+
+        <div class="login-form-container" fxFlexAlign="auto">
+          <h1 class="mat-h1">Sign in to your account</h1>
+
+          <form [formGroup]="form" class="form">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ localizationService.keys["USERNAME"] }}</mat-label>
+              <input
+                matInput
+                placeholder="{{ localizationService.keys['ENTER_USERNAME'] }}"
+                formControlName="username"
+              />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>{{ localizationService.keys["PASSWORD"] }}</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="{{ localizationService.keys['ENTER_PASSWORD'] }}"
+                formControlName="password"
+                (keydown)="onKeydown($event)"
+              />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              class="submit-button"
+              [disabled]="form.invalid || form.pristine"
+              (click)="checkLogin()"
+            >
+              {{ localizationService.keys["LOGIN"] }}
+            </button>
+          </form>
+        </div>
+
+
+  </div>
+</div>
+

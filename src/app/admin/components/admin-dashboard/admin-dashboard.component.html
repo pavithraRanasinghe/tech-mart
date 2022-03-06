@@ -1,0 +1,41 @@
+<app-spinner #spinner></app-spinner>
+<div class="grid-container">
+  <mat-grid-list cols="5" rowHeight="4rem">
+    <div>
+      <mat-grid-tile [colspan]="1" [rowspan]="4">
+        <mat-card
+          class="dashboard-card"
+        >
+          <a routerLink="/admin/sale-agent">
+            <div class="dashboard-icon">
+              <img
+                alt="Sales Agent "
+                itemprop="image"
+                src="assets/icons/new-wo.svg"
+              />
+              <div>Sales Agent</div>
+            </div>
+          </a>
+        </mat-card>
+      </mat-grid-tile>
+    </div>
+    <div>
+      <mat-grid-tile [colspan]="1" [rowspan]="4">
+        <mat-card
+          class="dashboard-card"
+        >
+          <a routerLink="/admin/product">
+            <div class="dashboard-icon">
+              <img
+                alt="Product Management"
+                itemprop="image"
+                src="assets/icons/ongoing-wo.svg"
+              />
+              <div>Product Management</div>
+            </div>
+          </a>
+        </mat-card>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

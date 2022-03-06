@@ -1,0 +1,34 @@
+<mat-nav-list>
+
+  <a mat-list-item routerLink="/" (click)="onSidenavClose()">
+    <mat-icon>home</mat-icon> <span class="nav-caption">{{localizationService.keys["DASHBOARD"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/skill" (click)="onSidenavClose()">
+    <mat-icon>home</mat-icon> <span class="nav-caption">{{localizationService.keys["SKILL"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/user-role" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["USER_ROLE"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/user-managment" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["USER_MANAGEMENT"]}}</span>
+  </a>
+  <a mat-list-item routerLink="/back-office/customer-management" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["CUSTOMER_MANAGEMENT"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/price-categories" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["PRICE_CATEGORIES"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/unit" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["UNIT"]}}</span>
+  </a>
+
+  <a mat-list-item routerLink="/back-office/prices" (click)="onSidenavClose()">
+    <mat-icon>account_box</mat-icon> <span class="nav-caption">{{localizationService.keys["PRICES"]}}</span>
+  </a>
+
+</mat-nav-list>

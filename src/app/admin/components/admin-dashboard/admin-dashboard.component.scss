@@ -1,0 +1,31 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.dashboard-icon {
+  text-align: center;
+}
+
+.dashboard-icon img {
+  object-position: 50% 50%;
+  width: 96px;
+  object-fit: cover;
+  margin-top: 30px;
+}
+
+.dashboard-icon p {
+  font-size: 20px;
+  font-weight: 400;
+}

@@ -1,0 +1,19 @@
+<div class="grid-container">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <router-outlet name="outlet1"></router-outlet>
+
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <router-outlet name="outlet2"></router-outlet>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <div style="text-align: center; margin-top: 72px">
+          <img id="comp-k55d8477imgimage" style="object-position:50% 50%;width:137px;object-fit:cover" alt="Doktor Hemma" data-type="image" itemprop="image" src="https://static.wixstatic.com/media/6d8e32_7eabcc5038944f7e9ec692a68ff8b2d7~mv2.png/v1/fill/w_140,h_140,al_c,q_85,usm_0.66_1.00_0.01/6d8e32_7eabcc5038944f7e9ec692a68ff8b2d7~mv2.webp">
+        </div>
+        </mat-card>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

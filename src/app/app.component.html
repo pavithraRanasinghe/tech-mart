@@ -1,0 +1,16 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" #sidenav role="navigation">
+    <app-sidenav-list></app-sidenav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header
+      *ngIf="customer"
+      (sidenavToggle)="sidenav.toggle()"
+      [title]="headerTitle"
+      (sideNavClose)="sidenav.opened ? sidenav.toggle() : null"
+    ></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <div>
+    <!--currentUser && currentUser.status === userStatus.authenticated-->
+    <button
+      mat-icon-button
+      (click)="onToggleSidenav()"
+      *ngIf="currentUser && showMenu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a routerLink="/">{{ localizationService.keys[title] }}</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end">
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li
+        (click)="toggleLanguage()"
+        *ngIf="
+          localizationService.selectedLanguage === supportedLanguages.swedish
+        "
+      >
+        <img src="../../../../assets/flag-br.png" width="32" height="20" />
+      </li>
+      <!--currentUser && currentUser.status === userStatus.authenticated-->
+      <li *ngIf="currentUser">
+        <a (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

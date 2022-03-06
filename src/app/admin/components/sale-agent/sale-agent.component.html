@@ -1,0 +1,82 @@
+<mat-grid-list cols="3" rowHeight="100px">
+  <mat-grid-tile [colspan]="3">
+    <div fxFlex="90">
+      <form [formGroup]="salesAgentForm">
+        <div
+          fxLayout="row"
+          fxLayout.xs="column"
+          fxLayoutGap="5rem"
+          fxLayoutAlign="left"
+        >
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Contact No</mat-label>
+            <input matInput formControlName="contactNo">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Branch</mat-label>
+            <mat-select formControlName="branchId">
+              <mat-option *ngFor="let branch of branches" [value]="branch.id">
+                {{branch.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="6" rowHeight="4rem">
+  <mat-grid-tile [colspan]="6">
+    <div fxFlex="90">
+      <div
+        fxLayout="row"
+        fxLayoutAlign="start"
+        fxLayoutGap="3rem"
+      >
+        <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+        <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+        <button mat-raised-button color="primary" (click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="skill-table">
+  <table [dataSource]="datasource" mat-table class="mat-elevation-z8">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef fxFlex="20">Name</th>
+      <td mat-cell *matCellDef="let element" fxFlex="20"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef fxFlex="80">Username</th>
+      <td mat-cell *matCellDef="let element" fxFlex="80"> {{element.username}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="contact">
+      <th mat-header-cell *matHeaderCellDef fxFlex="20">Contact</th>
+      <td mat-cell *matCellDef="let element" fxFlex="20"> {{element.contact}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="branch">
+      <th mat-header-cell *matHeaderCellDef fxFlex="20">Branch</th>
+      <td mat-cell *matCellDef="let element" fxFlex="20"> {{element.branch}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="selectedRole(row)" *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
