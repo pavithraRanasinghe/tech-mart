@@ -123,8 +123,8 @@ export class ProductManagementComponent implements OnInit {
 
   loadAllSuppliers(){
     this.supplierService.getAllSuppliers().subscribe((value: any) => {
-      console.log('Supplier : ', value);
-      this.suppliers = value._embedded.supplierList;
+      this.suppliers = value.object;
+      console.log('Sup : ', this.suppliers);
     });
   }
 

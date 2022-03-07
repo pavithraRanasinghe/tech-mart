@@ -8,12 +8,18 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {AdminDashboardComponent, ProductManagementComponent} from './components';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {NgImageSliderModule} from 'ng-image-slider';
+import {CartComponent} from './components/cart/cart.component';
+import {ProductsComponent} from './components/products/products.component';
+import {HeaderComponent} from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     ProductManagementComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    HeaderComponent,
+    CartComponent,
+    ProductsComponent
   ],
   imports: [
     LibModule,

@@ -25,9 +25,10 @@ export class SaleAgentComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  private salesAgent: SalesAgent = {id: 0, name: '', username: '', contactNo: '', branchId: 0};
+  private salesAgent: SalesAgent = {id: 0, name: '', username: '', password: '', contactNo: '', branchId: 0};
   private initialObject: any;
   datasourceArr: SalesAgentGrid[] = [];
+  private row: SalesAgentGrid;
   displayedColumns: string[] = ['name', 'username', 'contact', 'branch'];
   branches = [];
 
@@ -46,6 +47,7 @@ export class SaleAgentComponent implements OnInit {
       id: [null],
       name: [null],
       username: [null],
+      password: [null],
       contactNo: [null],
       branchId: [null]
     });
@@ -53,9 +55,22 @@ export class SaleAgentComponent implements OnInit {
     this.loadAllBranches();
   }
 
-  loadAllSalesAgents() {
+  async loadAllSalesAgents() {
     this.saleAgentService.getAllSalesAgents().subscribe((data: any) => {
-      this.datasourceArr = data._embedded.skillList;
+
+      for (const value of data) {
+        this.row = {
+          id: value.id,
+          name: value.name,
+          username: value.username,
+          contact: value.contactNo,
+          branch: value.branchId.branchName
+        };
+        console.log('Row : ', this.datasourceArr);
+        this.datasourceArr.push(this.row );
+      }
+      this.datasourceArr = data.object;
+      console.log('Object : ', this.datasourceArr);
       this.datasource = new MatTableDataSource<SalesAgentGrid>(this.datasourceArr);
       this.datasource.paginator = this.paginator;
     });
@@ -67,6 +82,7 @@ export class SaleAgentComponent implements OnInit {
         id: this.salesAgentForm.get('id').value,
         name: this.salesAgentForm.get('name').value,
         username: this.salesAgentForm.get('username').value,
+        password: this.salesAgentForm.get('password').value,
         contactNo: this.salesAgentForm.get('contactNo').value,
         branchId: this.salesAgentForm.get('branchId').value
       };
@@ -89,6 +105,7 @@ export class SaleAgentComponent implements OnInit {
         id: this.salesAgentForm.get('id').value,
         name: this.salesAgentForm.get('name').value,
         username: this.salesAgentForm.get('username').value,
+        password: this.salesAgentForm.get('password').value,
         contactNo: this.salesAgentForm.get('contactNo').value,
         branchId: this.salesAgentForm.get('branchId').value
       };
@@ -123,8 +140,8 @@ export class SaleAgentComponent implements OnInit {
 
   loadAllBranches(){
     this.branchService.findAllBranches().subscribe((value: any) => {
-      console.log('Branches : ', value);
-      this.branches = value._embedded.branchList;
+      this.branches = value.object;
+      console.log('Branches : ', this.branches);
     });
   }
 

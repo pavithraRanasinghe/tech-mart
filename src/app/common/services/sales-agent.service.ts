@@ -4,7 +4,7 @@ import { HttpMethod } from '../models/http-method';
 import { HttpService } from './http.service';
 import {SalesAgent} from '../models/sales-agent.model';
 
-const BASE_URL = `${environment.apiUrl}/api/sales_agent`;
+const BASE_URL = `${environment.apiUrl}/salesAgent`;
 
 @Injectable({
   providedIn: 'root'

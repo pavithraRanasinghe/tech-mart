@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import {userTypeToPathMapping} from '../../constants/user-path-mapper';
 import {UserType} from '../../models/enums/user-types';
-import {SpinnerComponent} from '../spinner/spinner.component'
+import {SpinnerComponent} from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-login',
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.basicLogin(this.form.value).pipe(first()).subscribe(
       data => {
         this.userType = data.object.userType;
-        this.authenticationService.setUser(data);
+        this.authenticationService.setUser(data.object);
         const pathsForUserType = userTypeToPathMapping[this.userType];
         const mainPath = pathsForUserType.path;
         if (this.returnUrl && this.returnUrl.split('/')[1] === mainPath) {
