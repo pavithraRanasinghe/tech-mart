@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from '../../services/cart.service';
+import {AuthenticationService} from '../../../common/services';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,9 @@ export class HeaderComponent implements OnInit {
   public totalItem = 0;
   public searchTerm !: string;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private authenticationService: AuthenticationService,
+              private router: Router,) {
   }
 
   ngOnInit(): void {
@@ -23,7 +27,11 @@ export class HeaderComponent implements OnInit {
 
   search(event: any) {
     this.searchTerm = (event.target as HTMLInputElement).value;
-    console.log(this.searchTerm);
     this.cartService.search.next(this.searchTerm);
+  }
+
+  logout(){
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }

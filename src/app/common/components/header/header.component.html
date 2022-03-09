@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="currentUser && showMenu">
   <div>
     <!--currentUser && currentUser.status === userStatus.authenticated-->
     <button
@@ -24,7 +24,7 @@
       </li>
       <!--currentUser && currentUser.status === userStatus.authenticated-->
       <li *ngIf="currentUser">
-        <a (click)="logout()"><mat-icon>exit_to_app</mat-icon></a>
+        <a (click)="logout()"><mat-icon>settings_power</mat-icon></a>
       </li>
     </ul>
   </div>

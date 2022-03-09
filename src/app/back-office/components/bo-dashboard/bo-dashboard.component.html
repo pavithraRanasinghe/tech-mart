@@ -1,1 +1,23 @@
-<h1>DASHBOARD</h1>
+<app-spinner #spinner></app-spinner>
+<div class="grid-container">
+  <mat-grid-list cols="5" rowHeight="4rem">
+    <div>
+      <mat-grid-tile [colspan]="1" [rowspan]="4">
+        <mat-card
+          class="dashboard-card"
+        >
+          <a routerLink="/sales-agent/orders">
+            <div class="dashboard-icon">
+              <img
+                alt="Orders"
+                itemprop="image"
+                src="assets/icons8-clipboard-90.png"
+              />
+              <div>Pending Orders</div>
+            </div>
+          </a>
+        </mat-card>
+      </mat-grid-tile>
+    </div>
+  </mat-grid-list>
+</div>

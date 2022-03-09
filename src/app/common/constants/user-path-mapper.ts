@@ -1,5 +1,5 @@
 export const userTypeToPathMapping = {
-  BACK_OFFICE: {path: 'back-office'},
+  SALES_AGENT: {path: 'sales-agent'},
   CUSTOMER: {path: 'customer'},
   ADMIN: {path: 'admin'}
 };

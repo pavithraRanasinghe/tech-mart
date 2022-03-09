@@ -37,9 +37,8 @@ export class CartComponent implements OnInit {
   }
 
   onCheckout() {
-    const customer = JSON.parse(localStorage.getItem('user')).userId;
+    const customer = JSON.parse(localStorage.getItem('user')).name;
     this.products.forEach((product: any) => {
-      console.log('Product : ', product);
       this.productDetail.push({
         productId: product.id,
         qty: product.quantity
@@ -50,7 +49,6 @@ export class CartComponent implements OnInit {
       branchId: 1,
       requestList: this.productDetail
     };
-    console.log('Request : ', this.request);
     this.orderService.placeOrder(this.request).subscribe(value => {
       this.emptyCart();
     });

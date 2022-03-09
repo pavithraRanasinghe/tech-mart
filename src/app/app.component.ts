@@ -64,12 +64,16 @@ export class AppComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log('APP ON CHANGE');
     this.appUserService.currentUser.subscribe(currentUser => {
       this.currentUser = currentUser;
-      console.log('User : ', this.currentUser);
       if (this.currentUser.userType === UserType.customer){
         this.customer = false;
       }
     });
+  }
+
+  public check(){
+    console.log('APP');
   }
 }

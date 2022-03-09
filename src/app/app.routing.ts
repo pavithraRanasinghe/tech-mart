@@ -17,8 +17,8 @@ const appRoutes: Routes = [
     data: {register: true, title: 'LOGIN'}
   },
   {
-    path: 'back-office',
-    loadChildren: () => import('./back-office/back-office-module').then(m => m.BackOfficeModule),
+    path: 'sales-agent',
+    loadChildren: () => import('./back-office/sales-agent-module').then(m => m.SalesAgentModule),
     canActivate: [AuthGuard],
     data: {userType: UserType.backOffice}
   },

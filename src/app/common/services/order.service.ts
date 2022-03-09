@@ -16,4 +16,12 @@ export class OrderService {
   public placeOrder(request: OrderRequest) {
     return this.httpService.sendHttp(BASE_URL, HttpMethod.POST, request);
   }
+
+  public findByStatus(status) {
+    return this.httpService.sendHttp(`${BASE_URL}/${status}`, HttpMethod.GET);
+  }
+
+  public confirm(request: any) {
+    return this.httpService.sendHttp(`${BASE_URL}/confirm`, HttpMethod.PUT, request);
+  }
 }

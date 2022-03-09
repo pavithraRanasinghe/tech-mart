@@ -1,0 +1,54 @@
+<div class="mat-paginator">
+
+  <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="orderId">
+      <th mat-header-cell *matHeaderCellDef> Order Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef> Order Date</th>
+      <td mat-cell *matCellDef="let element"> {{element.orderDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef> Customer Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="customerAddress">
+      <th mat-header-cell *matHeaderCellDef> Customer Address</th>
+      <td mat-cell *matCellDef="let element"> {{element.customer.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="branch">
+      <th mat-header-cell *matHeaderCellDef> Branch</th>
+      <td mat-cell *matCellDef="let element"> {{element.branch.branchName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef style="padding-left: 60px"> Actions</th>
+      <mat-cell *matCellDef="let row">
+        <button type="button" class="btn btn-success" style="margin-right: 10px" (click)="onSelected(row)">View</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+
+  <!-- pagination -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 #paginator
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+
+

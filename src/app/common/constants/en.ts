@@ -13,5 +13,7 @@ export enum en {
   UPDATE_SUCCESSFUL = 'Successfully updated',
   SALES_AGENT = 'Sale Agent',
   ADMIN_DASHBOARD = 'Admin Dashboard',
-  PRODUCT_MANAGEMENT = 'Product Management'
+  PRODUCT_MANAGEMENT = 'Product Management',
+  PENDING_ORDERS = 'Pending Orders',
+  ORDER_DETAIL = 'Order Detail'
 }

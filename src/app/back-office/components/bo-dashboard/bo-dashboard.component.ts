@@ -1,4 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
+import {SpinnerComponent} from '../../../common/components/spinner/spinner.component';
 
 @Component({
   selector: 'app-bo-dashboard',
@@ -6,4 +7,6 @@ import {Component, ViewChild} from '@angular/core';
   styleUrls: ['./bo-dashboard.component.scss']
 })
 export class BoDashboardComponent {
+
+  @ViewChild('spinner') spinner: SpinnerComponent;
 }
