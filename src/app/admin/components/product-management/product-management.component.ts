@@ -8,11 +8,11 @@ import {ProductService} from '../../../common/services/product.service';
 import {SupplierService} from '../../../common/services/supplier.service';
 
 export interface ProductGrid {
-  id: number;
-  name: string;
+  productId: number;
+  productName: string;
   description: string;
-  price: number;
-  supplier: string;
+  sellingPrice: number;
+  supplierId: string;
 }
 
 @Component({
@@ -25,11 +25,19 @@ export class ProductManagementComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  private product: ProductModel = {id: 0, name: '', description: '', price: 0, supplier: null};
+  private product: ProductModel = {
+    productId: 0,
+    productName: '',
+    description: '',
+    sellingPrice: 0,
+    imgUrl: null,
+    supplier: null
+  };
   private initialObject: any;
   datasourceArr: ProductGrid[] = [];
   displayedColumns: string[] = ['name', 'description', 'price', 'supplier'];
   suppliers = [];
+  file: any;
 
   datasource: MatTableDataSource<ProductGrid>;
 
@@ -56,7 +64,7 @@ export class ProductManagementComponent implements OnInit {
 
   loadAllProducts() {
     this.productService.getAllProduct().subscribe((data: any) => {
-      this.datasourceArr = data._embedded.skillList;
+      this.datasourceArr = data.object;
       this.datasource = new MatTableDataSource<ProductGrid>(this.datasourceArr);
       this.datasource.paginator = this.paginator;
     });
@@ -65,14 +73,15 @@ export class ProductManagementComponent implements OnInit {
   onSave() {
     if (this.productForm.valid) {
       this.product = {
-        id: this.productForm.get('id').value,
-        name: this.productForm.get('name').value,
+        productId: this.productForm.get('id').value,
+        productName: this.productForm.get('name').value,
         description: this.productForm.get('description').value,
-        price: this.productForm.get('price').value,
+        sellingPrice: this.productForm.get('price').value,
+        imgUrl: this.file,
         supplier: this.productForm.get('supplierId').value
       };
     }
-    if (this.product.name === null || this.product.price === 0) {
+    if (this.product.productName === null || this.product.sellingPrice === 0) {
       this.message.error('WARNING', 'Fields cannot be empty');
     } else {
       this.productService.saveProduct(this.product).subscribe(() => {
@@ -87,10 +96,11 @@ export class ProductManagementComponent implements OnInit {
   onUpdate() {
     if (this.productForm.valid) {
       this.product = {
-        id: this.productForm.get('id').value,
-        name: this.productForm.get('name').value,
+        productId: this.productForm.get('id').value,
+        productName: this.productForm.get('name').value,
         description: this.productForm.get('description').value,
-        price: this.productForm.get('price').value,
+        sellingPrice: this.productForm.get('price').value,
+        imgUrl: this.file,
         supplier: this.productForm.get('supplierId').value
       };
     }
@@ -102,15 +112,15 @@ export class ProductManagementComponent implements OnInit {
   }
 
   selectedRole(selectedProduct) {
-    this.product.id = selectedProduct.id;
+    this.product.productId = selectedProduct.id;
     this.productForm.get('name').setValue(selectedProduct.name);
     this.productForm.get('description').setValue(selectedProduct.description);
     this.productForm.get('price').setValue(selectedProduct.price);
   }
 
   onDelete() {
-    if (this.product.id !== 0) {
-      this.productService.deleteProduct(this.product.id).subscribe(() => {
+    if (this.product.productId !== 0) {
+      this.productService.deleteProduct(this.product.productId).subscribe(() => {
         this.message.success('DELETE_SUCCESSFUL', 'Product delete successful');
         this.productForm.reset(this.initialObject);
         this.loadAllProducts();
@@ -121,11 +131,13 @@ export class ProductManagementComponent implements OnInit {
     }
   }
 
-  loadAllSuppliers(){
+  loadAllSuppliers() {
     this.supplierService.getAllSuppliers().subscribe((value: any) => {
       this.suppliers = value.object;
-      console.log('Sup : ', this.suppliers);
     });
   }
 
+  onChange(event) {
+    this.file = event.target.files[0];
+  }
 }

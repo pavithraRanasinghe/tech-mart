@@ -1,9 +1,10 @@
 import {SupplierModel} from './supplier.model';
 
 export class ProductModel{
-  id: number;
-  name: string;
+  productId: number;
+  productName: string;
   description: string;
-  price: number;
+  sellingPrice: number;
+  imgUrl: any;
   supplier: SupplierModel;
 }

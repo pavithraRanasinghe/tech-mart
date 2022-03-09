@@ -30,7 +30,6 @@ export class AppComponent implements OnInit, OnDestroy, OnChanges {
   ngOnInit() {
     this.appUserService.currentUser.subscribe(x => {
         this.currentUser = x;
-        console.log('APP : ', this.currentUser);
         this.changeDetectorRef.detectChanges();
         if (!this.appUserService.currentUserValue){
           this.router.navigate(['/login']);

@@ -13,7 +13,6 @@ export class BranchService {
   constructor(private httpService: HttpService) {
   }
   public findAllBranches() {
-    console.log('URL : ', BASE_URL);
     return this.httpService.sendHttp(BASE_URL, HttpMethod.GET);
   }
 }

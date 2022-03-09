@@ -5,7 +5,7 @@ import {CustomerRoutingModule} from './customer-routing';
 import {CommonModule} from '../common/common.module';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {AdminDashboardComponent, ProductManagementComponent} from './components';
+import {AdminDashboardComponent} from './components';
 import {ProductDetailComponent} from './components/product-detail/product-detail.component';
 import {NgImageSliderModule} from 'ng-image-slider';
 import {CartComponent} from './components/cart/cart.component';
@@ -15,7 +15,6 @@ import {HeaderComponent} from './components/header/header.component';
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    ProductManagementComponent,
     ProductDetailComponent,
     HeaderComponent,
     CartComponent,

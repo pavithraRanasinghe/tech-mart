@@ -57,20 +57,7 @@ export class SaleAgentComponent implements OnInit {
 
   async loadAllSalesAgents() {
     this.saleAgentService.getAllSalesAgents().subscribe((data: any) => {
-
-      for (const value of data) {
-        this.row = {
-          id: value.id,
-          name: value.name,
-          username: value.username,
-          contact: value.contactNo,
-          branch: value.branchId.branchName
-        };
-        console.log('Row : ', this.datasourceArr);
-        this.datasourceArr.push(this.row );
-      }
       this.datasourceArr = data.object;
-      console.log('Object : ', this.datasourceArr);
       this.datasource = new MatTableDataSource<SalesAgentGrid>(this.datasourceArr);
       this.datasource.paginator = this.paginator;
     });
@@ -141,7 +128,6 @@ export class SaleAgentComponent implements OnInit {
   loadAllBranches(){
     this.branchService.findAllBranches().subscribe((value: any) => {
       this.branches = value.object;
-      console.log('Branches : ', this.branches);
     });
   }
 

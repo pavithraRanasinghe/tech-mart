@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CartService} from '../../services/cart.service';
+import {OrderRequest} from '../../../common/models/order-request';
+import {OrderService} from '../../../common/services/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +12,12 @@ export class CartComponent implements OnInit {
 
   public products: any = [];
   public grandTotal !: number;
+  private productDetail = [];
 
-  constructor(private cartService: CartService) {
+  private request: OrderRequest;
+
+  constructor(private cartService: CartService,
+              private orderService: OrderService) {
   }
 
   ngOnInit(): void {
@@ -30,4 +36,23 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
 
+  onCheckout() {
+    const customer = JSON.parse(localStorage.getItem('user')).userId;
+    this.products.forEach((product: any) => {
+      console.log('Product : ', product);
+      this.productDetail.push({
+        productId: product.id,
+        qty: product.quantity
+      });
+    });
+    this.request = {
+      customerId: customer,
+      branchId: 1,
+      requestList: this.productDetail
+    };
+    console.log('Request : ', this.request);
+    this.orderService.placeOrder(this.request).subscribe(value => {
+      this.emptyCart();
+    });
+  }
 }
