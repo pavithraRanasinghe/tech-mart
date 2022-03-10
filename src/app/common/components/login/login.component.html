@@ -1,6 +1,4 @@
 <app-spinner #spinner></app-spinner>
-
-
 <div
   fxLayout="row"
   fxLayout.xs="column"
@@ -10,7 +8,7 @@
 >
 
   <div fxFlex="50" class="login-image">
-    <img src="https://images.unsplash.com/photo-1587582423116-ec07293f0395?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+    <img src="assets/background.jpg" alt="">
   </div>
 
   <div fxFlex="50" class="login-form full-width"
@@ -23,19 +21,19 @@
 
           <form [formGroup]="form" class="form">
             <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ localizationService.keys["USERNAME"] }}</mat-label>
+              <mat-label>Username</mat-label>
               <input
                 matInput
-                placeholder="{{ localizationService.keys['ENTER_USERNAME'] }}"
+                placeholder="Username"
                 formControlName="username"
               />
             </mat-form-field>
             <mat-form-field class="full-width" appearance="outline">
-              <mat-label>{{ localizationService.keys["PASSWORD"] }}</mat-label>
+              <mat-label>Password</mat-label>
               <input
                 matInput
                 type="password"
-                placeholder="{{ localizationService.keys['ENTER_PASSWORD'] }}"
+                placeholder="Password"
                 formControlName="password"
                 (keydown)="onKeydown($event)"
               />
@@ -50,6 +48,11 @@
             >
               {{ localizationService.keys["LOGIN"] }}
             </button>
+            <a
+              fxLayoutAlign="center"
+              routerLink="/register" style="color: black; font-size: 20px; margin-top: 10px">
+              <div>Sign up</div>
+            </a>
           </form>
         </div>
 

@@ -10,6 +10,7 @@ import {AppUserService} from './common/services';
 import {MaterialModule} from './material.module';
 import {LibModule} from './lib.module';
 import {CommonModule} from './common/common.module';
+import {RegisterComponent} from './common/components';
 
 export function initializeApp(appUserService: AppUserService): any {
   return (): Promise<void> => appUserService.loadUserData();
@@ -30,7 +31,8 @@ export function initializeApp(appUserService: AppUserService): any {
     LoginComponent,
     SidenavListComponent,
     HeaderComponent,
-    DialogComponent
+    DialogComponent,
+    RegisterComponent
   ],
   entryComponents: [
     DialogComponent

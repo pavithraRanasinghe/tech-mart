@@ -2,7 +2,7 @@ import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core'
 import {MatTableDataSource} from '@angular/material/table';
 import {ProductGrid} from '../../../admin/components';
 import {OrderService} from '../../../common/services/order.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatPaginator} from '@angular/material/paginator';
 import {Router} from '@angular/router';
 import {DriverServices} from '../../../common/services/driver.services';
@@ -47,8 +47,8 @@ export class OrderManagementComponent implements OnInit {
     this.orderConfirmForm = this.formBuilder.group({
       customer: [null],
       address: [null],
-      driver: [null],
-      vehicle: [null],
+      driver: [null, Validators.required],
+      vehicle: [null, Validators.required],
 
     });
 
@@ -60,7 +60,6 @@ export class OrderManagementComponent implements OnInit {
   }
 
   selectedRole(selectedProduct) {
-    console.log('Selected Row  : ', selectedProduct);
   }
 
   onConfirm() {

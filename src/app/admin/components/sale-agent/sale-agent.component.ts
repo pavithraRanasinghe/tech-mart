@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {SalesAgentService} from '../../../common/services/sales-agent.service';
 import {MessageService} from '../../../common/services';
 import {MatTableDataSource} from '@angular/material/table';
@@ -46,10 +46,10 @@ export class SaleAgentComponent implements OnInit {
     this.salesAgentForm = this.formBuilder.group({
       id: [null],
       name: [null],
-      username: [null],
-      password: [null],
+      username: [null, Validators.required],
+      password: [null, Validators.required],
       contactNo: [null],
-      branchId: [null]
+      branchId: [null, Validators.required]
     });
     this.loadAllSalesAgents();
     this.loadAllBranches();

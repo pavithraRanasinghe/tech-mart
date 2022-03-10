@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MessageService} from '../../../common/services';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
@@ -52,11 +52,11 @@ export class ProductManagementComponent implements OnInit {
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
       id: [null],
-      name: [null],
+      name: [null, Validators.required],
       description: [null],
-      price: [null],
-      image: [null],
-      supplierId: [null]
+      price: [null, Validators.required],
+      image: [null, Validators.required],
+      supplierId: [null, Validators.required]
     });
     this.loadAllProducts();
     this.loadAllSuppliers();

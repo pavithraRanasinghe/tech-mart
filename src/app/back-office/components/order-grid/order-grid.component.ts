@@ -52,7 +52,6 @@ export class OrderGridComponent implements OnInit {
   }
 
   onSelected(row){
-    console.log('Row : ', row);
     this.router.navigateByUrl('/sales-agent/detail', {state: {detail: row}});
   }
 }

@@ -25,7 +25,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getAllProduct()
       .subscribe((res: any) => {
-        console.log('Res : ', res);
         for (const value of res.object) {
           this.product = {
             id: value.productId,
@@ -47,7 +46,6 @@ export class ProductsComponent implements OnInit {
           }
           Object.assign(a, {quantity: 1, total: a.price});
         });
-        console.log(this.productList);
       });
 
     this.cartService.search.subscribe((val: any) => {

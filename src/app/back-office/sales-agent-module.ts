@@ -3,7 +3,6 @@ import { MaterialModule } from '../material.module';
 import { LibModule } from '../lib.module';
 import { BackOfficeRoutingModule } from './sales-agent-routing';
 import { BoDashboardComponent } from './components';
-import { PermissionDirective } from '../common/helpers';
 import { CommonModule } from '../common/common.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
@@ -13,7 +12,6 @@ import {OrderManagementComponent} from './components/order_management/order-mana
 @NgModule({
   declarations: [
     BoDashboardComponent,
-    PermissionDirective,
     OrderGridComponent,
     OrderManagementComponent
   ],

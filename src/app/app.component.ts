@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy, OnChanges {
         this.currentUser = x;
         this.changeDetectorRef.detectChanges();
         if (!this.appUserService.currentUserValue){
-          this.router.navigate(['/login']);
+          this.router.navigate(['/register']);
         }
       });
     this.initiateTitleUpdating();
@@ -64,7 +64,6 @@ export class AppComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('APP ON CHANGE');
     this.appUserService.currentUser.subscribe(currentUser => {
       this.currentUser = currentUser;
       if (this.currentUser.userType === UserType.customer){

@@ -3,6 +3,7 @@ import {HomeComponent, LoginComponent} from './common/components';
 import {AuthGuard} from './common/helpers';
 import {NgModule} from '@angular/core';
 import {UserType} from './common/models/enums/user-types';
+import {RegisterComponent} from './common/components';
 
 const appRoutes: Routes = [
   {
@@ -10,6 +11,11 @@ const appRoutes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard],
     data: {title: 'DASHBOARD'}
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {register: true, title: 'REGISTER'}
   },
   {
     path: 'login',

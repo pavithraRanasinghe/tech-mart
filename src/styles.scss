@@ -10,10 +10,10 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
 $candy-app-primary: mat.define-palette(mat.$blue-palette, 200);
-$candy-app-accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$candy-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:    mat.define-palette(mat.$red-palette);
+$candy-app-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $candy-app-theme: mat.define-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
@@ -26,19 +26,21 @@ html, body {
   height: 100%;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
+mat-drawer-content{
+  overflow: hidden !important;
+}
 
 app-header .mat-toolbar {
-    border-radius: 0;
+  border-radius: 0;
 }
 
-app-header .mat-toolbar.mat-primary{
+app-header .mat-toolbar.mat-primary {
 
 }
-
 
 
 .basic-container {
@@ -61,19 +63,20 @@ app-header .mat-toolbar.mat-primary{
 }
 
 
-
-
 .style-success {
-  background: rgb(154, 205, 50) ;
+  background: rgb(154, 205, 50);
   white-space: pre-wrap;
 }
-.style-success .mat-simple-snackbar-action  {
+
+.style-success .mat-simple-snackbar-action {
   color: white;
 }
+
 .style-error {
   white-space: pre-wrap;
   background-color: #c54838;
 }
+
 .style-error .mat-simple-snackbar-action {
   color: white;
 }
@@ -123,160 +126,178 @@ td, th {
 }
 
 .mat-card a:link:not(#exclude), .mat-card a:visited:not(#exclude) {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .mat-drawer-container {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
-.wo-list{
+.wo-list {
   .cdk-column-priority {
-      width: 1rem;
+    width: 1rem;
   }
-  .cdk-column-workOrderNumber{
-      width: 1rem;
+
+  .cdk-column-workOrderNumber {
+    width: 1rem;
   }
-  .cdk-column-customer{
-      width: 1rem;
+
+  .cdk-column-customer {
+    width: 1rem;
   }
-  .cdk-column-targetStartDate{
-       width: 1rem;
+
+  .cdk-column-targetStartDate {
+    width: 1rem;
   }
-  .cdk-column-targetEndDate{
-       width: 1rem;
+
+  .cdk-column-targetEndDate {
+    width: 1rem;
   }
-  .cdk-column-suburb{
-      width: 1rem;
+
+  .cdk-column-suburb {
+    width: 1rem;
   }
+
   .cdk-column-inProgressJobs,
   .cdk-column-completedJobs,
   .cdk-column-totalJobs,
-  .cdk-column-actions{
-      width: 1rem;
+  .cdk-column-actions {
+    width: 1rem;
   }
+
   .cdk-column-actions .mat-icon-button {
-      padding: 0 !important;
-      margin: 0;
-      width: 24px;
-      height: 24px;
-      line-height: 24px;
+    padding: 0 !important;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
   }
 }
 
-.table-job-allocation{
-  .cdk-column-description{
-      width: 50% !important;
+.table-job-allocation {
+  .cdk-column-description {
+    width: 50% !important;
   }
-  th,td{
-  width: 1% !important;
+
+  th, td {
+    width: 1% !important;
   }
 }
 
-.table-rfw{
-  .cdk-column-description{
-      width: 50% !important;
+.table-rfw {
+  .cdk-column-description {
+    width: 50% !important;
   }
 }
 
 /* Priority Cards */
-.priority-indicator{
+.priority-indicator {
   padding: 0.125rem;
 }
 
 
-  .priority-card-urgent,
-  .priority-card-very-high,
-  .priority-card-high,
-  .priority-card-low{
-      background: none;
-      display: flex !important;
-      box-shadow: none !important;
+.priority-card-urgent,
+.priority-card-very-high,
+.priority-card-high,
+.priority-card-low {
+  background: none;
+  display: flex !important;
+  box-shadow: none !important;
 
 
+}
 
-  }
+.priority-card-urgent:before,
+.priority-card-very-high:before,
+.priority-card-high:before,
+.priority-card-low:before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  position: relative;
+  display: block;
+  border-radius: 1rem;
 
-  .priority-card-urgent:before,
-  .priority-card-very-high:before,
-  .priority-card-high:before,
-  .priority-card-low:before{
-    content: "";
-    width: 0.75rem;
-    height: 0.75rem;
-    position: relative;
-    display: block;
-    border-radius: 1rem;
+}
 
-  }
+.priority-card-urgent:before {
+  background: #e74c3c;
+}
 
-  .priority-card-urgent:before{background: #e74c3c;}
-  .priority-card-very-high:before{background: #e67e22;}
-  .priority-card-high:before{background: #f1c40f;}
-  .priority-card-low:before{background: #2ecc71;}
+.priority-card-very-high:before {
+  background: #e67e22;
+}
+
+.priority-card-high:before {
+  background: #f1c40f;
+}
+
+.priority-card-low:before {
+  background: #2ecc71;
+}
 
 
+.mat-column-priority {
 
-  .mat-column-priority {
-
-  }
+}
 
 
 table {
-    width: 100%;
-  }
+  width: 100%;
+}
 
-  th.mat-header-cell, td.mat-cell {
-    text-align: left;
-    vertical-align: top;
-    padding: 10px !important;
-  }
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+th.mat-header-cell, td.mat-cell {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px !important;
+}
 
-
-
-
-  td, th {
-
-  }
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
 
 
-.mat-form-field-infix{
+td, th {
+
+}
+
+
+.mat-form-field-infix {
   width: auto !important;
 }
 
 
-.button-group{
+.button-group {
   display: flex;
 }
 
-.login-container{
-   margin: -10px;
-   height: calc(100vh - 64px);
+.login-container {
+  margin: -10px;
+  height: calc(100vh);
 
-   .login-image{
-      overflow: hidden;
-      img{
-              height: calc(100vh - 64px)
-           }
-   }
+  .login-image {
+    overflow: hidden;
 
-   .login-form{
+    img {
+      height: calc(100vh)
+    }
+  }
 
-      .login-form-container{
-        max-width: 400px;
-        width:100%;
-        margin: auto;
-      }
-      .submit-button{
-        height: auto;
-        margin: auto;
-        width: 100%;
-        padding: 0.5rem;
-      }
-   }
+  .login-form {
+
+    .login-form-container {
+      max-width: 400px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .submit-button {
+      height: auto;
+      margin: auto;
+      width: 100%;
+      padding: 0.5rem;
+    }
+  }
 }
